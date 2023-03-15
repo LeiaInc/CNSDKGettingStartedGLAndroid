@@ -2,7 +2,6 @@ package com.leia.cnsdkgettingstartedgl;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import android.opengl.GLSurfaceView;
 import android.util.Log;
 
 import com.leia.sdk.LeiaSDK;
@@ -13,8 +12,6 @@ import com.leia.core.LogLevel;
 public class MainActivity extends AppCompatActivity implements LeiaSDK.Delegate {
 
     private String LogTag = "CNSDKGettingStartedGL";
-    private MainRenderer mainRenderer = null;
-    private GLSurfaceView mainView = null;
     InterlacedSurfaceView interlacedView = null;
     private LeiaSDK leiaSDK = null;
 
@@ -37,17 +34,7 @@ public class MainActivity extends AppCompatActivity implements LeiaSDK.Delegate 
             e.printStackTrace();
         }
 
-        // Create renderer.
-        mainRenderer = new MainRenderer(this);
-
-        // Get regular view to render some graphics.
-        mainView = findViewById(R.id.nonInterlacedView);
-        mainView.setEGLContextClientVersion(3);
-        mainView.setEGLConfigChooser(8, 8, 8, 8, 16, 0);
-        mainView.setPreserveEGLContextOnPause(true);
-        mainView.setRenderer(mainRenderer);
-
-        // Get interlaced view to show stereo image.
+        // Get interlaced view and set input asset containing a sample stereo 3d image.
         interlacedView = findViewById(R.id.interlacedView);
         InputViewsAsset viewsAsset = new InputViewsAsset();
         viewsAsset.LoadBitmapFromPathIntoSurface("image_0.jpg", this, null);
@@ -62,13 +49,13 @@ public class MainActivity extends AppCompatActivity implements LeiaSDK.Delegate 
     @Override
     protected void onResume() {
         super.onResume();
-        mainView.onResume();
+        interlacedView.onResume();
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        mainView.onPause();
+        interlacedView.onPause();
     }
 
     public void onFaceTrackingStarted(LeiaSDK leiaSDK) {
