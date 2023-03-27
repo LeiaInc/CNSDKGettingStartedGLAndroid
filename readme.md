@@ -1,5 +1,11 @@
 # Leia CNSDK For Simple Java Android Applications
 
+## Requirements
+Lume Pad 2 device with:
+
+* [Display Config Service v0.1.0231.apk](https://drive.google.com/file/d/1oAsbjSmQ6gkDQ85HVxV3-ZL4wbvI0_gp/view) installed
+* [Head Tracking Service v0.6.154.apk](https://drive.google.com/file/d/1Ixr3rBLaRdiTM6PZAbhapjq12GBM2nXd/view) installed
+
 ## Purpose
 Provide a tutorial that shows how to create a simple lightfield application in Java using the Leia CNSDK.
 
