@@ -22,5 +22,5 @@ android {
 dependencies {
     implementation 'androidx.appcompat:appcompat:1.6.1'
     implementation 'com.google.android.material:material:1.8.0'
-    implementation files("../CNSDK/sdk-final-aar-debug.aar")
+    implementation files("../CNSDK/sdk-final-aar-release-0-6-167.aar")
 }
